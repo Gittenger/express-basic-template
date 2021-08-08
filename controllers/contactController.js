@@ -1,12 +1,12 @@
-const { EmailBooking } = require('../utils/email')
+const { EmailContact } = require('../utils/email')
 const catchAsync = require('../utils/catchAsync')
 
 exports.sendEmail = catchAsync(async (req, res, next) => {
 	const { name, email, desc, phone, sendCopy } = req.body
 
 	if (name && email && desc && phone) {
-		const mail = new EmailBooking({ name, email, desc, phone })
-		const sent = await mail.sendBooking()
+		const mail = new EmailContact({ name, email, desc, phone })
+		const sent = await mail.sendGreeting()
 
 		if (sendCopy) {
 			const copy = await mail.sendCopy()

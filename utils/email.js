@@ -62,7 +62,7 @@ class Email {
 	}
 }
 
-class EmailBooking {
+class EmailContact {
 	constructor(formInfo) {
 		this.name = formInfo.name
 		this.email = formInfo.email
@@ -91,7 +91,7 @@ class EmailBooking {
 
 	async send(template, subject, options = { copy: false }) {
 		const html = pug.renderFile(
-			`${__dirname}/../mailTemplates/booking/${template}.pug`,
+			`${__dirname}/../mailTemplates/contact/${template}.pug`,
 			{
 				name: this.name,
 				email: this.email,
@@ -111,7 +111,7 @@ class EmailBooking {
 		return await this.newTransport().sendMail(mailOptions)
 	}
 
-	async sendBooking() {
+	async sendGreeting() {
 		return await this.send(
 			'main',
 			`New email from your ${process.env.SITE_TITLE} website`
@@ -126,4 +126,4 @@ class EmailBooking {
 }
 
 module.exports.EmailUser = EmailUser
-module.exports.EmailBooking = EmailBooking
+module.exports.EmailContact = EmailContact
