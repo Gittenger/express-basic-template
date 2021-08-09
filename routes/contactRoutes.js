@@ -1,7 +1,7 @@
 const express = require('express')
-const bookingController = require('../controllers/bookingController')
+const contactController = require('../controllers/contactController')
 
-const { sendEmail } = bookingController
+const { sendEmail } = contactController
 
 const router = express.Router()
 

@@ -3,7 +3,7 @@ const nodemailerSendgrid = require('nodemailer-sendgrid')
 const htmlToText = require('html-to-text')
 const pug = require('pug')
 
-class Email {
+class EmailUser {
 	constructor(user, url) {
 		this.to = user.email
 		this.name = user.name

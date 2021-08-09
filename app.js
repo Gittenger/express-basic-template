@@ -10,7 +10,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 
 const userRoutes = require('./routes/userRoutes')
 const imageRoutes = require('./routes/imageRoutes')
-const bookingRoutes = require('./routes/bookingRoutes')
+const contactRoutes = require('./routes/contactRoutes')
 
 const AppError = require('./utils/appError')
 const globalErrorHandler = require('./controllers/errorController')
@@ -77,7 +77,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/api/users', userRoutes)
 app.use('/api/images', imageRoutes)
-app.use('/api/booking', bookingRoutes)
+app.use('/api/contact', contactRoutes)
 
 app.all('*', (req, res, next) => {
 	next(
